@@ -1,6 +1,6 @@
 import PropTypes, { InferProps } from "prop-types";
 
-import style from './button.module.scss'
+import style from './Button.module.scss'
 
 function Button({
   tipo,
