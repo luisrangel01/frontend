@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 
 // import logo from './logo.svg';
-import "./App.css";
+import "./App.scss";
 // import Saludo from './components/Saludo';
 import Counter from "./components/Counter";
 import Button from "./components/Button";
