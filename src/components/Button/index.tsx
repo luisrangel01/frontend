@@ -1,12 +1,16 @@
 import PropTypes, { InferProps } from "prop-types";
 
-import style from './Button.module.scss'
+import style from "./Button.module.scss";
 
 function Button({
   tipo,
   accion,
 }: InferProps<typeof Button.propTypes>): JSX.Element {
-  return <button className={style.button}  onClick={accion}>{tipo}</button>;
+  return (
+    <button className={style.button + " razor " + style.cool} onClick={accion}>
+      {tipo}
+    </button>
+  );
 }
 
 Button.propTypes = {

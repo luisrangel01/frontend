@@ -4,6 +4,7 @@ import ReactDOM from "react-dom/client";
 import "./index.scss";
 import App from "./components/App";
 import reportWebVitals from "./reportWebVitals";
+import { UserProvider } from "./context/UserContext";
 import { DataProvider } from "./context/DataContext";
 
 const root = ReactDOM.createRoot(
@@ -11,9 +12,11 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   <React.StrictMode>
-    <DataProvider>
-      <App />
-    </DataProvider>
+    <UserProvider>
+      <DataProvider>
+        <App />
+      </DataProvider>
+    </UserProvider>
   </React.StrictMode>
 );
 
