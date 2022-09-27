@@ -3,8 +3,8 @@ import { useState, useEffect } from "react";
 // import logo from './logo.svg';
 import "./App.css";
 // import Saludo from './components/Saludo';
-import Counter from "./components/Counter";
-import Button from "./components/Button";
+import Counter from "../Counter";
+import Button from "../Button";
 
 function App() {
   // const [edad, setEdad] = useState(15);
