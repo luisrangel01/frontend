@@ -1,4 +1,6 @@
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import { useBackListener } from "../../hooks/useBackListener";
 
 // import logo from './logo.svg';
 import "./App.css";
@@ -7,6 +9,7 @@ import Counter from "../Counter";
 import Button from "../Button";
 
 function App() {
+  // const navigate = useNavigate();
   // const [edad, setEdad] = useState(15);
   const [count, setCount] = useState(10);
   const sumar = () => {
@@ -19,6 +22,11 @@ function App() {
   useEffect(() => {
     console.log(count);
   }, [count]);
+
+  // useBackListener(({ location }: any) => {
+  //   console.log("Navigated Back", { location });
+  //   // navigate("/", { replace: true });
+  // });
 
   return (
     <div className="App">
