@@ -1,41 +1,38 @@
-const React = require('react');
+import { useState } from "react";
 
-// Don't change PcDisplay
-const PcDisplay = (props) => {
-  return (<div>
-  <h1>{props.title}</h1>
-  <p id="price">£{props.price}</p>
-  <ul>
-    <li><label>CPU</label> <span>{props.cpu}</span></li>
-    <li><label>RAM</label> <span>{props.ram}</span></li>
-    <li><label>SSD</label> <span>{props.ssd}</span></li>
-  </ul>
-  </div>);
-};
+export const Search = () => {
+  const list = [
+    "Banana",
+    "Apple",
+    "Orange",
+    "Mango",
+    "Pineapple",
+    "Watermelon",
+  ];
 
-// Implement HOC -> returns a functions that wraps the passed in `PcDisplay` component
-function withPriceModel(WrappedComponent, priceIncrease = 0) {
-  return class extends React.Component {
-    constructor(props) {
-      super(props);
-      this.state = {
-        price: 50 + priceIncrease
-      };
+  const [filterList, setFilterList] = useState(list);
+
+  const handleSearch = (event) => {
+    const text = event.target.value.toLowerCase();
+
+    if (text.length === 0) {
+      setFilterList(list);
+      return true;
     }
 
-    render() {
-      return <WrappedComponent {...this.props} price={this.state.price}  />;
-    }
+    const newList = list.filter((element) => {
+      return element.toLowerCase().indexOf(text) !== -1;
+    });
+
+    setFilterList(newList);
   };
-}
 
-
-// Build basic and pro model components using `withPriceModel`
-export const BasicModel = withPriceModel(
-  PcDisplay
-);
-
-export const ProModel = withPriceModel(
-  PcDisplay,
-  60
-);
+  return (
+    <>
+      <input type="text" onChange={handleSearch} />
+      {filterList.map((element) => {
+        return <div>{element}</div>;
+      })}
+    </>
+  );
+};

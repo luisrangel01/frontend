@@ -6,6 +6,8 @@ import App from "./components/App";
 import reportWebVitals from "./reportWebVitals";
 import { UserProvider } from "./context/UserContext";
 import { DataProvider } from "./context/DataContext";
+import { store } from "./store/store";
+import { Provider } from "react-redux";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
@@ -14,7 +16,9 @@ root.render(
   <React.StrictMode>
     <UserProvider>
       <DataProvider>
-        <App />
+        <Provider store={store}>
+          <App />
+        </Provider>
       </DataProvider>
     </UserProvider>
   </React.StrictMode>
