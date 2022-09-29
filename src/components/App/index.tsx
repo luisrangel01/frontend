@@ -7,6 +7,7 @@ import "./App.css";
 // import Saludo from './components/Saludo';
 import Counter from "../Counter";
 import Button from "../Button";
+import {BasicModel,ProModel} from "../test";
 
 function App() {
   // const navigate = useNavigate();
@@ -30,11 +31,17 @@ function App() {
 
   return (
     <div className="App">
-      <Counter numero={count} />
+      {/* <Counter numero={count} />
+      <Button tipo="suma" accion={() => setCount(count + 1)} />
+      <Button tipo="resta" accion={() => setCount(count - 1)} /> */}
+
+
+
       {/* <Button tipo='suma' accion={sumar} />
       <Button tipo='resta' accion={restar} /> */}
-      <Button tipo="suma" accion={() => setCount(count + 1)} />
-      <Button tipo="resta" accion={() => setCount(count - 1)} />
+      <BasicModel />
+      <ProModel />
+
       {/* <img src={logo} className="App-logo" alt="logo" /> */}
       {/* <Saludo nombre={edad > 18 ? 'Luis' : 'Abdel'} edad={edad} />
       <button onClick={() => {
